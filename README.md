@@ -5,7 +5,7 @@ FlaskSR provides an easy way to add streaming HTTP Responses for Flask.
 ## Why should you use this?
 
 When the user sees something happening on the screen; the site has begun to render in response to their request. This critical first step tells the user that the site is responding to their action.
-This measure is called "Time to First Paint". Today most of the websites are trying to minimize this measure. In order to enable that it is necessary to not send the complete response in one go but to push partial responses multiple times.
+This measure is called "Time to First Paint". Today most of the websites are trying to minimize this measure. In order to enable this it is necessary to not send the complete response in one go but to push partial responses multiple times.
 
 ## Installation
 Install the extension with the following command:
@@ -19,7 +19,7 @@ Once installed, the FlaskSR is easy to use. Let's walk through setting up a basi
 
 To begin we'll set up a Flask app:
 
-```
+```py
 from flask import Flask
 from flasksr import BasicSR
 
@@ -53,7 +53,9 @@ if __name__ == '__main__':
     app.run(host='0.0.0.0')
 ```
 
-Complete documentation for Flask-Login is available on GitBook.
+## Documentation
+
+Complete documentation for FlaskSR is available on [FlaskSR's GitBook](https://arpitbbhayani.gitbooks.io/flasksr/).
 
 ## Contributing
 
