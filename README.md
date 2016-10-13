@@ -61,6 +61,5 @@ We welcome contributions! If you would like to hack on FlaskSR, please follow th
 
  - Fork this repository
  - Make your changes
- - Install the requirements in dev-requirements.txt
  - Submit a pull request after running make check (ensure it does not error!)
  - Please give us adequate time to review your submission. Thanks!
