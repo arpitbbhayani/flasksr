@@ -7,6 +7,8 @@ FlaskSR provides an easy way to add streaming HTTP Responses for Flask.
 When the user sees something happening on the screen; the site has begun to render in response to their request. This critical first step tells the user that the site is responding to their action.
 This measure is called "Time to First Paint". Today most of the websites are trying to minimize this measure. In order to enable this it is necessary to not send the complete response in one go but to push partial responses multiple times.
 
+![flasksr-comparison](https://cloud.githubusercontent.com/assets/4745789/19354772/86697410-9185-11e6-83d0-a0c26f29e3d5.gif)
+
 ## Installation
 Install the extension with the following command:
 
