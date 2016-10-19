@@ -15,11 +15,27 @@ class LayoutSR(BaseSR):
     to stream response. And place it with respect to provided layout.
     '''
     def __init__(self, *args, **kwargs):
+
+        # Function from kwargs that renders the layout for components
         self.layout = None
+
+        # Function(s) that needs to be rendered before component stream begins
         self.pre_stream = None
+
+        # Function(s) that needs to be rendered after component stream ends
         self.post_stream = None
+
+        # Function(s) each of which renders one component
         self.components = args
+
+        # kwargs passed to LayoutSR
         self.kwargs = kwargs
+
+        # ID of the DIV element where all components are initially streamed
+        self.stream_div_id = 'stream-div'
+
+        # ID of the DIV element inside which layout of components is defined
+        self.stream_div_layout_id = 'stream-div-layout'
 
         if 'layout' in kwargs:
             self.layout = kwargs.pop('layout')
@@ -32,6 +48,12 @@ class LayoutSR(BaseSR):
         if 'post_stream' in kwargs:
             self.post_stream = kwargs.pop('post_stream')
             self._validate_callability(self.post_stream, 'post_stream')
+
+        if 'stream_div_id' in kwargs:
+            self.stream_div_id = kwargs.pop('stream_div_id')
+
+        if 'stream_div_layout_id' in kwargs:
+            self.stream_div_layout_id = kwargs.pop('stream_div_layout_id')
 
         if self.components:
             self._validate_callability(self.components, 'args')
@@ -49,9 +71,9 @@ class LayoutSR(BaseSR):
 
         # Yield LayoutSR Specific Content
         yield """
-        <div id="streaming-div">
+        <div id="%s">
         <script>
-            var MyMutationObserver = (function () {
+            var MyFlaskSRMutationObserver = (function () {
                 var prefixes = ['WebKit', 'Moz', 'O', 'Ms', '']
                 for(var i=0; i < prefixes.length; i++) {
                     if(prefixes[i] + 'MutationObserver' in window) {
@@ -61,37 +83,36 @@ class LayoutSR(BaseSR):
                 return false;
             }());
 
-            var observer = null;
-            if(MyMutationObserver) {
-                var target = document.querySelector('#streaming-div');
-                var observer = new MyMutationObserver(function(mutations) {
+            if(MyFlaskSRMutationObserver) {
+                var target = document.getElementById('%s');
+                var observerFlaskSR = new MyFlaskSRMutationObserver(function(mutations) {
                     mutations.forEach(function(mutation) {
                         var obj = mutation.addedNodes[0];
                         if(obj instanceof HTMLElement) {
-                            var referenceId = obj.getAttribute("refsrid");
+                            var referenceId = obj.getAttribute('sr-id');
                             if(referenceId) {
-                                var content = obj.innerHTML;
-                                var x = document.getElementById("streaming-div-layout").querySelectorAll("*[srid='"+referenceId+"']")[0].innerHTML = content;
+                                document.getElementById('%s').querySelectorAll("*[ref-sr-id='"+referenceId+"']")[0].innerHTML = obj.innerHTML;
                                 obj.innerHTML = '';
                             }
                         }
                     });
                 });
-
-                // configuration of the observer:
                 var config = {
                     childList: true
                 }
-                observer.observe(target, config);
+                observerFlaskSR.observe(target, config);
                 document.addEventListener("DOMContentLoaded", function(event) {
-                    observer.disconnect();
+                    observerFlaskSR.disconnect();
                 });
             }
             else {
-                // Fallback
-                alert("MutationObserver not found");
+                console.log("MutationObserver not found!");
             }
-        </script>"""
+        </script>""" % (
+            self.stream_div_id,
+            self.stream_div_id,
+            self.stream_div_layout_id
+        )
 
         # Yielding components
         for x in self._yield_all(self.components): yield x
