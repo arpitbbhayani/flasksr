@@ -22,8 +22,8 @@ def render_body():
 @app.route('/')
 def hello():
     return BasicSR(
-        render_menu,
-        render_body
+        render_menu(),
+        render_body()
     ).response
 
 

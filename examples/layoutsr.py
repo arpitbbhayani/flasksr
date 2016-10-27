@@ -57,10 +57,10 @@ def render_right():
 @app.route('/')
 def hello():
     return LayoutSR(
-        render_right,              # First component to render
-        render_left,               # Second component to render
-        layout=render_layout,      # Layout the components to be rendered
-        pre_stream=render_menu     # Gets rendered before component stream
+        render_right(),              # First component to render
+        render_left(),               # Second component to render
+        layout=render_layout(),      # Layout the components to be rendered
+        pre_stream=render_menu()     # Gets rendered before component stream
     ).response
 
 

@@ -2,29 +2,29 @@ from flasksr.exceptions import InvalidTypeException
 
 
 class BaseSR():
-    def _validate_callability(self, obj, name):
-        if not callable(obj) and type(obj) not in [list, tuple]:
-            raise InvalidTypeException("The object passed in variable"\
-                  " named %s should be either a function of a list or"\
-                  " tuple of functions that returns rendering"\
-                  " string" % (name))
+    str_types = [str]
 
-        if type(obj) in [list, tuple] and [x for x in obj if not callable(x)]:
-            raise InvalidTypeException("The object passed in variable"\
-                  " named %s should be either a function of a list or"\
-                  " tuple of functions that returns rendering"\
-                  " string" % (name))
+    try: temp = unicode
+    except: pass
+    else: str_types.append(unicode)
 
-    def _validate_function_callability(self, obj, name):
-        if not callable(obj):
+    def _validate_renderability(self, obj, name):
+        if type(obj) not in [list, tuple] and type(obj) not in str_types:
             raise InvalidTypeException("The object passed in variable"\
-                  " named %s should be a function" % (name))
+                  " named %s should be either a `str` to be rendered or a"\
+                  " list/tuple of `str` that are to be rendered" % (name))
+
+        if type(obj) in [list, tuple] and [x for x in obj
+                                           if type(x) not in str_types]:
+            raise InvalidTypeException("The object passed in variable"\
+                  " named %s should be either a `str` to be rendered or a"\
+                  " list/tuple of `str` that are to be rendered" % (name))
 
     def _yield(self, f):
         '''
-        Yields the return value of the function call for a callable object
+        Yields the value f representing the render string.
         '''
-        yield f()
+        yield f
 
     def _yield_all(self, l):
         '''

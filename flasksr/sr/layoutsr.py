@@ -39,15 +39,15 @@ class LayoutSR(BaseSR):
 
         if 'layout' in kwargs:
             self.layout = kwargs.pop('layout')
-            self._validate_function_callability(self.layout, 'layout')
+            self._validate_renderability(self.layout, 'layout')
 
         if 'pre_stream' in kwargs:
             self.pre_stream = kwargs.pop('pre_stream')
-            self._validate_callability(self.pre_stream, 'pre_stream')
+            self._validate_renderability(self.pre_stream, 'pre_stream')
 
         if 'post_stream' in kwargs:
             self.post_stream = kwargs.pop('post_stream')
-            self._validate_callability(self.post_stream, 'post_stream')
+            self._validate_renderability(self.post_stream, 'post_stream')
 
         if 'stream_div_id' in kwargs:
             self.stream_div_id = kwargs.pop('stream_div_id')
@@ -56,7 +56,7 @@ class LayoutSR(BaseSR):
             self.stream_div_layout_id = kwargs.pop('stream_div_layout_id')
 
         if self.components:
-            self._validate_callability(self.components, 'args')
+            self._validate_renderability(self.components, 'args')
 
     def _aggregate(self):
         '''

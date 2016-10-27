@@ -19,14 +19,12 @@ class BasicSR(BaseSR):
         self.kwargs = kwargs
 
         if self.components:
-            self._validate_callability(self.components, 'args')
+            self._validate_renderability(self.components, 'args')
 
     def _aggregate(self):
         '''
         Aggregates all the arguments passed to BasicSR and yields each one in
-        provided order. If any of the object passed is callable then it makes
-        a function call on it and then yields it; otherwise it yields the
-        string representation of the obejct passed.
+        provided order. It yields the objects passed as components.
         '''
         # Yielding components
         for x in self._yield_all(self.components): yield x
