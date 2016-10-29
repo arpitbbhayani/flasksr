@@ -1,19 +1,39 @@
 from flask import Flask
-from flasksr import LayoutSR
+from flasksr import LayoutSR, Component
 
 app = Flask(__name__)
 
 
 def render_menu():
-    '''This function returns the render string of top menu.
-    '''
+    return """
+        <ul style="list-style-type: none; margin: 0; padding: 0;">
+            <li><a href="/">Home</a></li>
+            <li><a href="#">News</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">About</a></li>
+        </ul>
+    """
 
-    return """<ul style="list-style-type: none; margin: 0; padding: 0;">
-        <li><a href="/">Home</a></li>
-        <li><a href="#">Menu 1</a></li>
-        <li><a href="#">Menu 2</a></li>
-        <li><a href="#">Menu 3</a></li>
-    </ul>"""
+
+def render_body():
+    return """
+        <div style="margin-top: 50px;">Hello World!</div>
+    """
+
+def render_first():
+    return """
+        <html>
+            <head>
+                <title>FlaskSR Example</title>
+            </head>
+            <body>
+    """
+
+def render_last():
+    return """
+            </body>
+        </html>
+    """
 
 
 def render_layout():
@@ -21,10 +41,10 @@ def render_layout():
     '''
 
     return """
-    <div id='stream-div-layout' style="width: 100%;">
-        <div ref-sr-id="left_content" style="float:left; width: 45%"></div>
-        <div ref-sr-id="right_content" style="float:right; width: 45%"></div>
-    </div>
+        <div id='stream-div-layout' style="width: 100%;">
+            <div ref-sr-id="left_content" style="float:left; width: 45%"></div>
+            <div ref-sr-id="right_content" style="float:right; width: 45%"></div>
+        </div>
     """
 
 def render_left():
@@ -57,10 +77,11 @@ def render_right():
 @app.route('/')
 def hello():
     return LayoutSR(
-        render_right,              # First component to render
-        render_left,               # Second component to render
-        layout=render_layout,      # Layout the components to be rendered
-        pre_stream=render_menu     # Gets rendered before component stream
+        Component(render_right),
+        Component(render_left),
+        layout=Component(render_layout),
+        pre_stream=(Component(render_first), Component(render_menu)),
+        post_stream=Component(render_last)
     ).response
 
 
