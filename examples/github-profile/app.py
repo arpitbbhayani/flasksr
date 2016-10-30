@@ -7,7 +7,7 @@ from flask import Flask, render_template
 
 app = Flask(__name__)
 
-TOKEN = 'a833b3bf7f6bb0a7ff167c3b59320cbfde883e53'
+TOKEN = 'xxx'
 
 
 def get_repos(git_handle, token, first_n):
