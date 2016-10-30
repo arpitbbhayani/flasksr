@@ -75,7 +75,7 @@ def hello():
     return LayoutSR(
         Component("right-side", render_right),
         Component("left-side", render_left),
-        layout=(Layout(render_layout),),
+        layout=Layout(render_layout),
         pre_stream=(Dom("head", render_first),
                     Dom("top-menu", render_menu),),
         post_stream=Dom("footer", render_last)
