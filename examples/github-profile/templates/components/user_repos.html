@@ -1,0 +1,31 @@
+<div sr-id="user-repos-component">
+    <div class="ui segment">
+        <div class="ui small header">
+            Repositories
+        </div>
+        <div class="ui divider"></div>
+        <div class="ui list">
+            {% for repo in repos %}
+            <div class="ui fluid card">
+                <div class="content">
+                    <a class="header" href="{{repo.html_url}}">{{repo.name}}</a>
+                    <div class="description">
+                        {{repo.description}}
+                    </div>
+                </div>
+                <div class="extra content">
+                    <a>
+                        {{repo.stargazers_count}} stars
+                    </a> |
+                    <a>
+                        {{repo.forks_count}} forks
+                    </a> |
+                    <a>
+                        {{repo.language}}
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
