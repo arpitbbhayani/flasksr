@@ -21,9 +21,9 @@ $ pip install flasksr
 ## Usage
 Once installed, the FlaskSR is easy to use. Following examples will help you through the complete usage
 
- - [How to use FlaskSR](https://github.com/arpitbbhayani/flasksr/blob/master/examples/basicsr.py)
- - [LayoutSR example](https://github.com/arpitbbhayani/flasksr/blob/master/examples/layoutsr.py)
- - [Advanced Usage: Github Profile Example](https://github.com/arpitbbhayani/flasksr/tree/master/examples/github-profile)
+ - [How to use FlaskSR](https://github.com/arpitbbhayani/flasksr/blob/master/examples/basicsr.py) : This is very basic top to down streaming of page components. Consider this to be the __Hello, World__ of FlaskSR.
+ - [LayoutSR example](https://github.com/arpitbbhayani/flasksr/blob/master/examples/layoutsr.py) : The example shows how you can prioritize rendering of various components of your page.
+ - [Advanced Usage: Github Profile Example](https://github.com/arpitbbhayani/flasksr/tree/master/examples/github-profile) : The example creates a Github Profile page of a user and renders different component of pages in different order so as to render the most important component first.
 
 ## Documentation
 
