@@ -1,2 +1,2 @@
 from .sr import BasicSR, LayoutSR
-from .entities import Component, Layout
+from .entities import Component, Layout, Dom

@@ -4,11 +4,6 @@ class Layout():
         self.kwargs = kwargs
         self.render_function = render_function
 
-        self.id = 'stream-layout-id'
-        if 'layout_id' in self.kwargs:
-            self.id = layout_id
-            del self.kwargs['layout_id']
-
     def execute(self):
         return """
             <sr-layout id="%(id)s">%(dom_string)s</sr-layout>
