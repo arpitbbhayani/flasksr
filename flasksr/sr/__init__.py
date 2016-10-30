@@ -1,2 +1,2 @@
-from basicsr import BasicSR
-from layoutsr import LayoutSR
+from .basicsr import BasicSR
+from .layoutsr import LayoutSR

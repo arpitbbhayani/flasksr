@@ -1,6 +1,6 @@
 click==6.6
 Flask==0.11.1
-flasksr==0.3
+flasksr==0.4
 itsdangerous==0.24
 Jinja2==2.8
 MarkupSafe==0.23
