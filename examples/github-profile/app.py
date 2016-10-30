@@ -1,6 +1,6 @@
 import json
 import requests
-from flasksr import LayoutSR, Component
+from flasksr import LayoutSR, Component, Layout
 
 from flask import Flask, render_template
 
@@ -78,7 +78,7 @@ def github_profile_fast(git_handle):
         Component(render_user_events_component, git_handle),
         pre_stream=(Component(render_page_head_component),),
         post_stream=(Component(render_page_end_component),),
-        layout=Component(render_component_layout)
+        layout=Layout(render_component_layout)
     ).response
 
 

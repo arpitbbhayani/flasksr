@@ -39,7 +39,7 @@ class LayoutSR(BaseSR):
 
         if 'layout' in kwargs:
             self.layout = kwargs.pop('layout')
-            self._validate_component(self.layout, 'layout')
+            self._validate_layout(self.layout, 'layout')
 
         if 'pre_stream' in kwargs:
             self.pre_stream = kwargs.pop('pre_stream')

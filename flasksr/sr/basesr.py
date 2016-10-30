@@ -20,15 +20,26 @@ class BaseSR():
     def _validate_component(self, obj, name):
         if self._is_component(obj) is False:
             raise InvalidTypeException("The object passed in variable"
-                  " named %s is of type `%s` but should be of type"
+                  " named %s is of type `%s` but should be an instance of"
                   " `Component`" % (type(obj), name))
+
+    def _validate_layout(self, obj, name):
+        if self._is_layout(obj) is False:
+            raise InvalidTypeException("The object passed in variable"
+                  " named %s is of type `%s` but should be an instance of"
+                  " `Layout`" % (type(obj), name))
+
 
     def _is_component(self, obj):
         return isinstance(obj, Component)
 
+    def _is_layout(self, obj):
+        return isinstance(obj, Layout)
+
     def _yield(self, f):
         '''
         Yields the return value of the function call of `Component`
+        and `Layout`
         '''
         yield f.execute()
 

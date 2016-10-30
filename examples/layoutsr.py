@@ -1,5 +1,5 @@
 from flask import Flask
-from flasksr import LayoutSR, Component
+from flasksr import LayoutSR, Component, Layout
 
 app = Flask(__name__)
 
@@ -79,7 +79,7 @@ def hello():
     return LayoutSR(
         Component(render_right),
         Component(render_left),
-        layout=Component(render_layout),
+        layout=Layout(render_layout),
         pre_stream=(Component(render_first), Component(render_menu)),
         post_stream=Component(render_last)
     ).response
