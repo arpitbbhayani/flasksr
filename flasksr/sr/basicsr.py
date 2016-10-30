@@ -19,7 +19,7 @@ class BasicSR(BaseSR):
         self.kwargs = kwargs
 
         if self.components:
-            self._validate_iter_or_component(self.components, 'args')
+            self._validate_iter_or_dom(self.components, 'args')
 
     def _aggregate(self):
         '''

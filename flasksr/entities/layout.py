@@ -1,13 +1,12 @@
-class Component():
-    def __init__(self, component_id, render_function, *args, **kwargs):
+class Layout():
+    def __init__(self, render_function, *args, **kwargs):
         self.args = args
         self.kwargs = kwargs
-        self.id = component_id
         self.render_function = render_function
 
     def execute(self):
         return """
-            <sr-component sr-id="%(id)s">%(dom_string)s</sr-component>
+            <sr-layout id="%(id)s">%(dom_string)s</sr-layout>
         """ % {
             'id': self.id,
             'dom_string': self.render_function(*self.args, **self.kwargs)

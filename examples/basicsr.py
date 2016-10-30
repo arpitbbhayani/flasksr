@@ -1,5 +1,5 @@
 from flask import Flask
-from flasksr import BasicSR, Component
+from flasksr import BasicSR, Dom
 
 app = Flask(__name__)
 
@@ -39,10 +39,10 @@ def render_last():
 @app.route('/')
 def hello():
     return BasicSR(
-        Component(render_first),
-        Component(render_menu),
-        Component(render_body),
-        Component(render_last)
+        Dom("head", render_first),
+        Dom("top-menu", render_menu),
+        Dom("main-body", render_body),
+        Dom("footer", render_last)
     ).response
 
 
