@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.js"></script>
+        <script src="/static/semantic.js"></script>
+        <link rel="stylesheet" type="text/css" href="/static/semantic.css">
+    </head>
+    <body>
+        {% include 'components/top_menu.html' %}
+        <div class="ui sixteen column grid very padded">
+            <div class="four wide column">
+                {% include 'components/user_profile.html' %}
+            </div>
+            <div class="six wide column">
+                {% include 'components/user_repos.html' %}
+            </div>
+            <div class="six wide column">
+                {% include 'components/user_events.html' %}
+            </div>
+        </div>
+    </body>
+</html>

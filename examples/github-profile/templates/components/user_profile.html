@@ -1,0 +1,19 @@
+<div sr-id="user-profile-component">
+    <div class="ui card fluid">
+        <div class="image">
+            <img src="{{user.avatar_url}}">
+        </div>
+        <div class="content">
+            <a class="header">{{user.name}}</a>
+            <div class="meta">
+                @<span class="date">{{user.login}}</span>
+            </div>
+            <div class="description">
+                {{user.bio}}
+            </div>
+        </div>
+        <div class="extra content">
+            {{user.public_repos}} public repos
+        </div>
+    </div>
+</div>

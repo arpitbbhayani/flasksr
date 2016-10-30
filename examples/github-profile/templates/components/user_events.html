@@ -1,0 +1,15 @@
+<div sr-id="user-events-component">
+    <div class="ui segment" style="height: 300px; overflow-y: auto;">
+        <div class="ui small header">
+            Events
+        </div>
+        <div class="ui divider"></div>
+        <div class="ui list">
+            {% for event in events %}
+                <div class="ui item">
+                    {{event.type}} : {{event.repo.name}}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
