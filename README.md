@@ -1,4 +1,4 @@
-# FlaskSR [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/dwyl/esta/issues) [![HitCount](https://hitt.herokuapp.com/{username||org}/{project-name}.svg)](https://github.com/{username||org}/{project-name})
+# FlaskSR [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/dwyl/esta/issues) [![HitCount](https://hitt.herokuapp.com/arpitbbhayani/flasksr.svg)](https://github.com/arpitbbhayani/flasksr)
 
 
 FlaskSR provides an easy way to add streaming HTTP Responses for Flask.
