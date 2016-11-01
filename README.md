@@ -1,11 +1,10 @@
-# FlaskSR [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/dwyl/esta/issues) [![HitCount](https://hitt.herokuapp.com/arpitbbhayani/flasksr.svg)](https://github.com/arpitbbhayani/flasksr)
+# FlaskSR [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/dwyl/esta/issues)
 
-
-FlaskSR provides an easy way to add streaming HTTP Responses for Flask.
+FlaskSR provides an easy way to make flask pages load faster and better by streaming HTTP Responses :boom:
 
 ## Why should you use this?
 
-Most of the websites are trying to minimize "Time to First Paint". This can be done by streaming partial responses to client. FlaskSR enables this functionality in n easy way for [Flask Web Framework](http://flask.pocoo.org/). With FlaskSR you can start streaming partial HTTP responses depending on layout to client so that client starts seeing some content along the way instead of seeing all of the site's content at once.
+Every web application tries to minimie the "Time to First Paint". This can be done by streaming partial responses to client. FlaskSR enables this functionality in an easy way for [Flask Web Framework](http://flask.pocoo.org/). With FlaskSR you can start streaming partial HTTP responses depending on layout to client so that client starts seeing some content along the way instead of seeing all of the site's content at once and thus making the pages load faster and better.
 
 Advantages:
  - Minimizes Time for first paint.
