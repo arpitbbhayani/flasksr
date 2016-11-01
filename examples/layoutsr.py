@@ -76,9 +76,9 @@ def hello():
         Component("right-side", render_right),
         Component("left-side", render_left),
         layout=Layout(render_layout),
-        pre_stream=(Dom("head", render_first),
-                    Dom("top-menu", render_menu),),
-        post_stream=Dom("footer", render_last)
+        pre_stream=(Dom(render_first),
+                    Dom(render_menu),),
+        post_stream=Dom(render_last)
     ).response
 
 

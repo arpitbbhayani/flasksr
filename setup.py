@@ -5,8 +5,8 @@ from setuptools import setup, find_packages
 setup(
     name = 'flasksr',
     packages=find_packages(exclude=('tests', 'tests.*')),
-    version = '0.5',
-    description = 'An easy way to stream HTTP Responses for Flask and improve time for First Paint',
+    version = '0.6',
+    description = 'Start streaming HTTP Responses based on your page layout for Flask and improve Time for First Paint.',
     author = 'Arpit Bhayani',
     author_email = 'arpit.bhayani@gmail.com',
     url = 'https://github.com/arpitbbhayani/flasksr',

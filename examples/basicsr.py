@@ -39,10 +39,10 @@ def render_last():
 @app.route('/')
 def hello():
     return BasicSR(
-        Dom("head", render_first),
-        Dom("top-menu", render_menu),
-        Dom("main-body", render_body),
-        Dom("footer", render_last)
+        Dom(render_first),
+        Dom(render_menu),
+        Dom(render_body),
+        Dom(render_last)
     ).response
 
 

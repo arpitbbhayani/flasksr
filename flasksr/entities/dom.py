@@ -1,5 +1,5 @@
 class Dom():
-    def __init__(self, component_id, render_function, *args, **kwargs):
+    def __init__(self, render_function, *args, **kwargs):
         self.args = args
         self.kwargs = kwargs
         self.render_function = render_function

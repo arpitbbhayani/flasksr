@@ -76,8 +76,8 @@ def github_profile_fast(git_handle):
         Component('user-repos', render_user_repos_component, git_handle),
         Component('user-profile', render_user_profile_component, git_handle),
         Component('user-events', render_user_events_component, git_handle),
-        pre_stream=(Dom('head', render_page_head_component),),
-        post_stream=(Dom('footer', render_page_end_component),),
+        pre_stream=(Dom(render_page_head_component),),
+        post_stream=(Dom(render_page_end_component),),
         layout=Layout(render_component_layout)
     ).response
 
