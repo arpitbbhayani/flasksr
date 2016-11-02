@@ -4,10 +4,10 @@ FlaskSR provides an easy way to make flask pages load faster and better by strea
 
 ## Why should you use this?
 
-Every web application tries to minimie the "Time to First Paint". This can be done by streaming partial responses to client. FlaskSR enables this functionality in an easy way for [Flask Web Framework](http://flask.pocoo.org/). With FlaskSR you can start streaming partial HTTP responses depending on layout to client so that client starts seeing some content along the way instead of seeing all of the site's content at once and thus making the pages load faster and better.
+Every web application tries to minimize the "Time to First Paint". This can be done by streaming partial responses to client. FlaskSR enables this functionality in an easy way for [Flask Web Framework](http://flask.pocoo.org/). With FlaskSR you can start streaming partial HTTP responses depending on layout to client so that client starts seeing some content along the way instead of seeing all of the site's content at once and thus making the pages load faster and better.
 
 Advantages:
- - Compatible with Jinja templates.
+ - Fully compatible with Jinja templates.
  - Minimizes Time for first paint.
  - No impact on SEO - as nothing goes via AJAX calls.
  - Start rendering important part of your page first so user start seeing important things first.
